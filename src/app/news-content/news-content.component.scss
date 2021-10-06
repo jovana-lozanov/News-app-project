@@ -1,0 +1,9 @@
+.btn {
+    color: grey;
+    border: 1px solid red;
+    margin: 0 5px;
+    &--active {
+        color: black;
+    }
+}
+

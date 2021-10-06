@@ -1,0 +1,26 @@
+<br>
+<div class="row">
+    <div class="col-3">
+        <ngb-pagination [maxSize]="5" [collectionSize]="news.pagination.total" [(page)]="params.page" [pageSize]="params.pageSize" (pageChange)="getNews()"></ngb-pagination>
+    </div>
+    <div class="col-3">
+        <label>Sort by Date of Publish:</label>
+        <button class="btn" [class.btn--active]="params.sortDirection === 'published_asc'" (click)="changeSort('published_asc')">Asc</button>
+        <button class="btn" [class.btn--active]="params.sortDirection === 'published_desc'" (click)="changeSort('published_desc')">Desc</button>
+        
+    </div>
+    <div class="col-6">
+        <button class="btn" [class.btn--active]="languageFilterActive" (click)="filterEnglish()">EN</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <label>Search Articles by Keywords</label>
+        <input type="text" class="form-control" (keyup)="getKeyword($event)">
+    </div>
+</div>
+<div class="row">
+    <div class="col-4" *ngFor="let item of news.data">
+        <app-news-content-item [news]="item"></app-news-content-item>
+    </div>
+</div>
